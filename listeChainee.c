@@ -4,12 +4,12 @@ typedef struct ElementListeChainee ElementListeChainee;
 
 struct ElementListeChainee
 {
-	void *contenu;
-	ElementListeChainee *suivant;
+	void* contenu;
+	ElementListeChainee* suivant;
 	int tailleElementListeChainee;
 };
 
-ElementListeChainee *initialiserListe(int taillePremier)
+ElementListeChainee* initialiserListe(int taillePremier)
 {
 	// par convention, le premier element est vide
 	// ca permet de generaliser les autres algorithmes
@@ -20,7 +20,7 @@ ElementListeChainee *initialiserListe(int taillePremier)
 	sortie -> tailleElementListeChainee = taillePremier;
 }
 
-void ajouterElementListeChainee(ElementListeChainee* depart, void *element)
+void ajouterElementListeChainee(ElementListeChainee* depart, void* element)
 {
 //ajout de type fifo (l'element le plus rapide a recuperer est le premier entre
 	int tailleElementListeChainees = depart -> tailleElementListeChainee;
@@ -33,7 +33,7 @@ void ajouterElementListeChainee(ElementListeChainee* depart, void *element)
 	actuel -> contenu = element;
 }
 
-void ajouterElementListeChaineePile(ElementListeChainee* depart, void *element)
+void ajouterElementListeChaineePile(ElementListeChainee* depart, void* element)
 {
 //ajout de type Pile lifo (l'element le plus rapide a recuperer est le dernier entre
 	int tailleElementListeChainees = depart -> tailleElementListeChainee;
@@ -48,7 +48,7 @@ void ajouterElementListeChaineePile(ElementListeChainee* depart, void *element)
 
 
 
-void* getElementListeChainee(ElementListeChainee * depart,int indice)
+void* getElementListeChainee(ElementListeChainee* depart, int indice)
 {
 	int i;
 	ElementListeChainee *actuel = depart;
@@ -61,7 +61,7 @@ void* getElementListeChainee(ElementListeChainee * depart,int indice)
 	return actuel -> contenu;
 }
 
-void supprimerElementListeChainee(ElementListeChainee *liste, int numero)
+void supprimerElementListeChainee(ElementListeChainee* liste, int numero)
 {
 	int i;
 	ElementListeChainee* precedent = liste;
@@ -86,9 +86,9 @@ void supprimerElementListeChainee(ElementListeChainee *liste, int numero)
 void exemple()
 {
 	//exemple d'utilisation
-	ElementListeChainee *liste = initialiserListe(sizeof(int));
+	ElementListeChainee* liste = initialiserListe(sizeof(int));
 	int ajouter = 5;
-	ajouterElementListeChainee(liste,&ajouter);
+	ajouterElementListeChainee(liste, &ajouter);
 	printf("%i\n", *((int*) getElementListeChainee(liste, 0)));
 	supprimerElementListeChainee(liste, 0);
 }
